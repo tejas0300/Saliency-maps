@@ -10,7 +10,7 @@ so the maps are tested quantitatively instead of being judged by eye.
 
 ## Methods
 
-All explanation methods are implemented from scratch in [`xai/methods.py`](xai/methods.py).
+All explanation methods are implemented from scratch in [`saliency maps/methods.py`](saliency maps/methods.py).
 
 | Method | Idea |
 |---|---|
@@ -19,7 +19,7 @@ All explanation methods are implemented from scratch in [`xai/methods.py`](xai/m
 | Grad-CAM (Selvaraju et al., 2017) | Last conv block's feature maps weighted by their mean gradient; implemented with forward/backward hooks |
 | Random | Control condition that any real method should beat |
 
-The evaluations are implemented in [`xai/metrics.py`](xai/metrics.py).
+The evaluations are implemented in [`saliency maps/metrics.py`](saliency maps/metrics.py).
 
 - **Deletion / insertion curves** (Petsiuk et al., 2018). Deletion removes the pixels a
   map ranks most important first and tracks the model's confidence; lower AUC is better.
@@ -94,8 +94,8 @@ python run_experiment.py --n-images 100      # real experiment (~340 MB Imagenet
 ## Repository structure
 
 ```
-xai/methods.py        Vanilla Gradient, Integrated Gradients, Grad-CAM, random baseline
-xai/metrics.py        deletion/insertion curves, model randomisation, Spearman correlation
+saliency maps/methods.py        Vanilla Gradient, Integrated Gradients, Grad-CAM, random baseline
+saliency maps/metrics.py        deletion/insertion curves, model randomisation, Spearman correlation
 run_experiment.py     full pipeline: data, model, explanations, metrics, figures
 results/              CSVs and figures from the run reported above
 ```
